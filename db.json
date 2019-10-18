@@ -1,0 +1,19 @@
+{"todos":
+  [
+    { "id": 1,
+      "todo": "Eat",
+      "details": "Small",
+      "completed": false
+    },
+    { "id": 2,
+      "topping": "Sleep",
+      "details": "Small",
+      "completed": false
+    },
+    { "id": 3,
+      "topping": "Drink",
+      "details": "Large",
+      "completed": false
+    }
+  ]
+}

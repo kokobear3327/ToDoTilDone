@@ -1,26 +1,46 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+
+export default function App() {
+  const [cartItems, setCartItems] = useState([]);
+  const [scrollDepth, setScrollDepth] = useState(0);
+  const [todo, setToDo] = useState(0);
+
+  function determineUserScrollDepth() {
+    const scrolled =  document.documentElement.scrollTop || 
+    document.body.scrollTop;
+    setScrollDepth(scrolled)
+  }
+
+useEffect(() => {
+  window.addEventListener('scroll', determineUserScrollDepth)
+
+  return function() {
+    window.removeEventListener('scroll', determineUserScrollDepth)
+  }
+})
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          You've scrolled this far: {scrollDepth}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          To Do Til Done
-        </a>
+        {/* <button onClick={() => {setCartItems([...cartItems, 'apple']) }}>
+            Add to Cart
+          </button> */}
+          <button onClick={() => {setToDo([...todo, 'Here is where the user text should be for the to do']) }}>
+
+          </button>
+          <p>{todo}</p>
+       
       </header>
     </div>
   );
 }
 
-export default App;
+
+
